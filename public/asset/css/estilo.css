@@ -1,0 +1,780 @@
+/* Nav*/
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url("https://via.placeholder.com/1500x1000") no-repeat center
+        center/cover;
+    height: 100vh;
+    color: white;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    border-radius: 20px;
+    margin: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center;
+}
+
+.navbar-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navbar-list li {
+    margin: 0 15px;
+}
+
+.navbar-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-list a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.navbar-login {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-btn {
+    background-color: #201f1e;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #75a2cf;
+}
+
+/* Estilos para el logo */
+.logo img {
+    filter: brightness(0) invert(1); /* Cambia la imagen a blanco */
+}
+
+/* Estilos para el botón de menú hamburguesa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+}
+
+/* Contenido */
+.contenido {
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.contenido h1 {
+    font-size: 3rem;
+}
+
+/* Media Queries para hacerlo responsivo */
+@media (max-width: 768px) {
+    .navbar-list {
+        display: none; /* Ocultar la lista de navegación en pantallas pequeñas */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-list.active {
+        display: flex; /* Mostrar la lista cuando el menú hamburguesa esté activo */
+    }
+
+    .navbar {
+        flex-direction: column; /* Apilar los elementos de la barra de navegación */
+        align-items: center;
+    }
+
+    .navbar-login {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostrar el menú hamburguesa */
+    }
+}
+
+/*carrusel*/
+
+/* General */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Estilos para las imágenes */
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto; /* Para mantener la relación de aspecto */
+    object-fit: cover; /* Para asegurar que la imagen se ajuste al contenedor sin distorsión */
+}
+
+/* Hacemos visible el primer elemento activo */
+.carousel-item.active {
+    display: block;
+}
+
+/* Estilos para las flechas de navegación */
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+/* Estilos para los iconos de las flechas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Flechas más grandes */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+    background-size: 100%, 100%;
+}
+
+/* Aseguramos que el carrusel sea responsive */
+@media (max-width: 768px) {
+    .carousel-item img {
+        object-fit: cover;
+    }
+}
+
+/*contenedor de lo que ofrecemos
+ Contenedor principal */
+.container {
+    display: flex; /* Usamos Flexbox para disponer los elementos horizontalmente */
+    justify-content: space-between; /* Esto asegura que haya un espacio igual entre cada elemento */
+    align-items: center; /* Centra los elementos verticalmente */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en filas si no caben en una sola fila */
+    gap: 20px; /* Espacio entre los elementos (puedes ajustar este valor) */
+    padding: 20px;
+}
+
+/* Estilo de cada item */
+.item {
+    flex: 1 1 22%; /* Toma el 22% del contenedor para un diseño responsive, con flexibilidad */
+    text-align: center;
+    padding: 10px;
+}
+
+/* Ajustar las imágenes para que no se desborden */
+.item img {
+    width: 80%; /* Ajusta el tamaño de las imágenes dentro de cada item */
+    max-width: 200px; /* Limita el tamaño máximo de la imagen */
+    margin-bottom: 10px;
+}
+
+/* Cambiar color de los párrafos dentro de .container a negro */
+.container p {
+    color: black;
+}
+
+/*Card*/
+
+/* CSS personalizado para flexbox */
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.card {
+    width: 18rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/*Animaciones de los cards*/
+
+/* Definir la animación swashIn */
+@keyframes swashIn {
+    0% {
+        transform: translateX(
+            100%
+        ); /* Comienza fuera de la pantalla a la derecha */
+        opacity: 0; /* Comienza invisible */
+    }
+    50% {
+        transform: translateX(
+            -20px
+        ); /* Se acerca ligeramente a la posición final */
+        opacity: 1; /* Se hace completamente visible */
+    }
+    100% {
+        transform: translateX(0); /* Llega a su posición final */
+        opacity: 1;
+    }
+}
+
+/* Aplicar la animación a las imágenes */
+.service-offer img {
+    animation: swashIn 1s ease-out; /* Aplicamos la animación en 1 segundo */
+}
+
+/* Animación suave para las tarjetas */
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Efecto de hover */
+}
+
+/* Footer general */
+#footer {
+  padding: 40px 0;
+  background-color: #8b8b8b;
+  color: black;
+}
+
+/* Contenedor del menú en 4 columnas */
+.footer-menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Estilo para cada columna */
+.footer-menu {
+  flex: 1 1 25%; /* Cada columna ocupa el 25% del ancho */
+  padding: 0 15px; /* Espaciado entre columnas */
+  box-sizing: border-box;
+}
+
+/* Títulos de los widgets */
+.widget-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* Espaciado entre los enlaces */
+.menu-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-item a {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.menu-item a:hover {
+  text-decoration: underline;
+}
+
+/* Enlaces de las redes sociales */
+.social-links ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.social-links ul li {
+  margin: 0 10px;
+}
+
+.social-links ul li a {
+  color: black;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.social-links ul li a:hover {
+  color: #75a2cf;
+}
+
+/* Estilo de la imagen del logo */
+.colored-image img {
+  max-width: 120px;
+  margin-top: 10px;
+}
+
+/* Alineación para pantallas pequeñas */
+@media (max-width: 768px) {
+  .footer-menu-list {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer-menu {
+      width: 100%; /* Cada columna ocupa el 100% en pantallas pequeñas */
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  .social-links ul {
+      margin-top: 10px;
+  }
+}
+
+
+/* Estilos personalizados */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: scale(1.05);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.stat-text {
+    font-size: 1rem;
+    color: #333;
+}
+
+.container_p {
+    align-items: center; /* Centra verticalmente */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px); /* Comienza un poco más abajo */
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s; /* Retardo para que la animación comience medio segundo después de cargar */
+}
+
+/* Definición de la animación */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Posición inicial */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Posición final */
+    }
+}
+
+/* Contenedor principal centrado */
+.projects-list {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  background-color: #a8a6a6; /* Color de fondo claro */
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px); /* Comienza un poco más abajo */
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s; /* Retardo para que la animación comience medio segundo después de cargar */
+}
+
+/* Estilo para la lista de enlaces */
+.projects-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.projects-list li {
+  margin: 30px 0;
+}
+
+.projects-list a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  border: 2px solid #201f1e;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover */
+.projects-list a:hover {
+  color: #fff;
+  background-color: transparent;
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+
+/* Estilo general de la barra de navegación */
+.navbar-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Estilo de los enlaces */
+.navbar-list li {
+  position: relative; /* Necesario para el posicionamiento de los submenús */
+}
+
+.navbar-list a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+/* Oculta el submenú inicialmente */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Posiciona el submenú justo debajo del elemento principal */
+  left: 0;
+  background-color: #333;
+  padding: 10px 0;
+  list-style: none;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+/* Estilo de los elementos del submenú */
+.dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+/* Hover para los elementos del submenú */
+.dropdown-menu a:hover {
+  background-color: #555;
+}
+
+/* Mostrar el submenú al pasar el ratón */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Oculta el submenú inicialmente */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Posiciona el submenú justo debajo del elemento principal */
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con un 80% de opacidad */
+  padding: 10px 0;
+  list-style: none;
+  border-radius: 8px;
+  z-index: 100;
+  backdrop-filter: blur(5px); /* Opcional: aplica un ligero desenfoque al fondo */
+}
+
+/* Estilo de los elementos del submenú */
+.dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+/* Hover para los elementos del submenú */
+.dropdown-menu a:hover {
+  background-color: rgba(180, 180, 180, 0.2); /* Fondo claro con un 20% de opacidad */
+}
+
+/*div de proyectos*/
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.text-content h2 {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+
+/* Estilos generales del contenedor */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Opcional: limitar el ancho del contenedor */
+  margin: 0 auto;
+}
+
+/* Estilos para los elementos de la lista */
+/* Estilos generales del contenedor */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Opcional: limitar el ancho del contenedor */
+  margin: 0 auto;
+}
+
+/* Estilos para los elementos de la lista */
+.projects-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.projects-list li {
+  width: 100%;
+  margin: 0;
+}
+
+/* Estilo para cada div dentro del li */
+.projects-list li div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 150px; /* Altura de cada bloque */
+  text-align: center;
+  color: black; /* Cambia el color de texto si es necesario */
+  font-size: 18px;
+}
+
+/* Estilo para los enlaces */
+.projects-list li div a {
+  color: black;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Quitar bordes redondeados */
+.projects-list li div {
+  border-radius: 0;
+}
+
+
+.carrusel_1 {
+  margin-top: 100px; /* Margen superior para separación */
+  max-width: 500%; /* Ajusta al ancho máximo de la pantalla */
+  overflow: hidden; /* Recorta el contenido para los bordes redondeados */
+}
+
+.carrusel_1 .carousel-item img {
+  object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+  height: 100px; /* Ajusta la altura del slider */
+}
+
+
+/* Estilos para la página de Proyectos en Venta */
+body.proyecto-venta .dropdown.active > a {
+  color: #ffffff; /* Cambia este color por el que necesites */
+}
+
+body.proyecto-venta .dropdown-menu li a {
+  color: #333; /* Establece el color predeterminado para los enlaces dentro del dropdown */
+}
+
+/* Asegúrate de que el color de los elementos del dropdown cambien cuando estén activos */
+body.proyecto-venta .dropdown-menu li a:hover {
+  color: #000000; /* Cambia el color cuando el cursor pasa sobre el enlace */
+}
+
+
+
+
+/* Contenedor de las tarjetas */
+/* Contenedor de las tarjetas */
+.card_2 {
+  display: flex;
+  justify-content: center; /* Centra las tarjetas en la pantalla */
+  gap: 20px; /* Espacio entre las tarjetas */
+  margin-top: 50px;
+  flex-wrap: wrap; /* Asegura que las tarjetas se ajusten al tamaño de la pantalla */
+}
+
+/* Estilo para cada tarjeta */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 300px; /* Ancho fijo para las tarjetas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación para cuando el ratón pasa por encima de la tarjeta */
+.card:hover {
+  transform: translateY(-10px); /* Eleva la tarjeta cuando pasa el ratón */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más grande */
+}
+
+/* Estilo del título (h2) */
+.card h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Estilo de la imagen */
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Estilo del botón */
+.card button {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto hover en el botón */
+.card button:hover {
+  background-color: #262727;
+  transform: scale(1.1); /* Agranda el botón cuando pasa el ratón */
+}
+
+body {
+  background-color: white; /* Fondo blanco */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif; /* Opcional: fuente para el cuerpo */
+}
